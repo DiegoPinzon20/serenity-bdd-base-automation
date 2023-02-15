@@ -1,19 +1,76 @@
 plugins {
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.4.2"
+    id "org.sonarqube" version "3.3"
     id 'java'
+    id 'eclipse'
+    id 'idea'
 }
 
-group 'com.reliquias.software'
-version '1.0-SNAPSHOT'
+defaultTasks 'clean', 'test', 'aggregate', 'sonarqube'
 
 repositories {
     mavenCentral()
 }
 
+group 'com.reliquias.software'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:deprecation"
+    }
+}
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '3.4.2'
+    junitVersion = '5.8.2'
+    assertJVersion = '3.23.1'
+    lombokVersion = '1.18.24'
+    logbackVersion = '1.2.11'
+    jsonSimpleVersion = '1.1.1'
+    restAssured = '5.3.0'
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-junit5:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}"
+
+    implementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    implementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    implementation "org.assertj:assertj-core:${assertJVersion}"
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    implementation "com.googlecode.json-simple:json-simple:${jsonSimpleVersion}"
+    implementation "io.rest-assured:rest-assured:${restAssured}"
 }
 
 test {
     useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
 }
+
+serenity {
+    reports = ["single-page-html"]
+    testRoot = "com.reliquias.software" //Specify the root package of any JUnit acceptance tests
+}
+
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)
