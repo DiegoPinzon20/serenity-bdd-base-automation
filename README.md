@@ -62,10 +62,9 @@ simplemente [descargar archivo zip](https://github.com/DiegoPinzon20/serenity-bd
 
 ## Ver los informes 👀
 
-El comando proporcionado anteriormente para la ejecución de las pruebas, generará un informe de prueba de Serenity **
-index.html**
-en el directorio target/site/serenity. Adicionalmente, puede encontrar evidencias generadas por Cucumber en la ruta **
-target/serenity-reports**, los archivos generados son:
+El comando proporcionado anteriormente para la ejecución de las pruebas, generará un informe de prueba de Serenity **index.html**
+en el directorio **target/site/serenity**. Adicionalmente, puede encontrar evidencias generadas por Cucumber en la ruta **target/serenity-reports**, 
+los archivos generados son:
 
 - **rerun.txt**: Archivo de texto con la información de la línea donde falló el caso para su revisión.
 - **serenity-html-report.html**: Reporte generado con el resultado de cada uno de los pasos del feature incluido en las
@@ -79,7 +78,7 @@ target/serenity-reports**, los archivos generados son:
 La automatización fue desarrollada con:
 
 - BDD - Estrategia de desarrollo de pruebas
-- Screenplay - Patrón de diseño
+- Screenplay - Patrón de diseño de pruebas
 - Gradle - Administrador de dependencias del proyecto
 - Selenium Web Driver - Herramienta para interaccionar con navegadores web
 - Cucumber - Software que apoya el BDD
