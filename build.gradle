@@ -70,6 +70,7 @@ test {
 serenity {
     reports = ["single-page-html"]
     testRoot = "com.reliquias.software" //Specify the root package of any JUnit acceptance tests
+    requirementsDir = "src/test/resources/features"
 }
 
 gradle.startParameter.continueOnFailure = true
