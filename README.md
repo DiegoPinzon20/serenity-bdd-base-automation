@@ -101,5 +101,4 @@ Se usa Git para el control de versiones. 🔀
 
 ## Copyright
 
-Publicado bajo la Licencia MIT, ver el
-archivo [LICENSE](https://github.com/DiegoPinzon20/serenity-bdd-base-automation/blob/master/LICENSE).
+Publicado bajo la Licencia MIT, ver el archivo [LICENSE](https://github.com/DiegoPinzon20/serenity-bdd-base-automation/blob/master/LICENSE).
