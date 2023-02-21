@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.Actor;
 public class LoginStepDefinitions {
 
     @Dado("{actor} navega a la página de inicio de sesión")
-    public void pepitoNavegaALaPaginaDeInicio_de_sesion(Actor actor) {
+    public void usuarioNavegaPaginaDeInicioSesion(Actor actor) {
 
     }
 
@@ -18,7 +18,7 @@ public class LoginStepDefinitions {
     }
 
     @Entonces("debería ver el tablero en la página principal")
-    public void deberiaVerElTableroEnLaPaginaPrincipal() {
+    public void deberiaVerTableroPaginaPrincipal() {
 
     }
 }
