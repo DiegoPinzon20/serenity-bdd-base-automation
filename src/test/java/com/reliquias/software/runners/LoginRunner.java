@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features/inicio_sesion.feature",
-        glue = {"co.com.challenge.automation.stepdefinitions"},
+        glue = "com.reliquias.software.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {
                 "pretty",
