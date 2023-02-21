@@ -7,6 +7,6 @@ Característica: Iniciar sesion en Start Sharp
 
   @InicioSesionExitoso
   Escenario: Inicio de sesón exitoso
-    Dado Pepito navega a la página de inicio de sesion
+    Dado Pepito navega a la página de inicio de sesión
     Cuando incia sesión con las credenciales de acceso correctas
     Entonces debería ver el tablero en la página principal
