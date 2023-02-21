@@ -6,16 +6,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = {"src/test/resources/features/web/search_a_trip.feature"},
+        features = "src/test/resources/features/inicio_sesion.feature",
         glue = {"co.com.challenge.automation.stepdefinitions"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {
                 "pretty",
-                "json:target/serenity-reports/web_applications/search_trip_aa/cucumber.json",
-                "html:target/serenity-reports/web_applications/search_trip_aa/serenity-html-report.html",
-                "rerun:target/serenity-reports/web_applications/search_trip_aa/rerun.txt"
+                "json:target/serenity-reports/web_applications/login/cucumber.json",
+                "html:target/serenity-reports/web_applications/login/serenity-html-report.html",
+                "rerun:target/serenity-reports/web_applications/login/rerun.txt"
         }
 )
 public class LoginRunner {
-
 }
